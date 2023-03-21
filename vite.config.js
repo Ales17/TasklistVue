@@ -1,17 +1,18 @@
-import path from 'path';
-import { defineConfig } from 'vite';
-import vue from '@vitejs/plugin-vue';
+import path from "path";
+import { defineConfig } from "vite";
+import vue from "@vitejs/plugin-vue";
 
 export default defineConfig({
   plugins: [vue()],
-  publicDir: './public',
+  publicDir: "./public",
   build: {
-    outDir: './dist'
+    outDir: "./dist",
   },
   resolve: {
     alias: {
-      '@': path.resolve(__dirname, 'src'),
-      '/assets': 'assets'
-    }
-  }
+      "@": path.resolve(__dirname, "src"),
+      "/assets": "assets",
+      "~bootstrap": path.resolve(__dirname, "node_modules/bootstrap"),
+    },
+  },
 });

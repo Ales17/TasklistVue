@@ -1,6 +1,7 @@
 <script>
 // give each todo a unique id
 let id = 0;
+import { BIconXSquareFill } from "bootstrap-icons-vue";
 
 export default {
   data() {
@@ -8,6 +9,9 @@ export default {
       newTodo: "",
       todos: [],
     };
+  },
+  components: {
+    BIconXSquareFill,
   },
   mounted() {
     if (localStorage.storage) {
@@ -44,12 +48,13 @@ export default {
     data-masonry='{"percentPosition":true,"itemSelector":".col-12"}'
   >
     <div v-for="todo in todos" :key="todo.id" class="col-12 col-sm-4 col-md-3">
+      <BIconBatteryFull />
       <div class="card mb-3 mt-3">
         <div class="card-body">
           <p class="card-text">{{ todo.text }}</p>
-          <a class="btn btn-danger" @click="removeTodo(todo)"
-            ><i class="bi bi-x-square-fill"></i
-          ></a>
+          <a class="btn btn-danger  d-inline-flex" @click="removeTodo(todo)">
+            <BIconXSquareFill />
+          </a>
         </div>
       </div>
     </div>
