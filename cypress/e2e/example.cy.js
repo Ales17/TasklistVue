@@ -1,8 +1,18 @@
 // https://docs.cypress.io/api/introduction/api.html
 
-describe('My First Test', () => {
-  it('visits the app root url', () => {
-    cy.visit('/')
-    cy.contains('h1', 'You did it!')
-  })
+before(() => {
+
+  cy.visit('localhost:4173')
+
 })
+
+describe("TaskList Test", () => {
+  it("adds the ask", () => {
+     cy.get(".form-control").should("be.visible");
+    cy.get(".form-control").type("Koupit rohlíky")
+    cy.get(".btn-primary").click()
+  });
+   
+  
+ 
+});
